@@ -6,15 +6,15 @@
 #include "LootLockerGameEndpoints.h"
 
 
-ULootLockerHttpClient* ULootLockerLeaderboardRequestHandler::HttpClient = nullptr;
+ULootLockerHttpClient* ULootLockerServerLeaderboardRequestHandler::HttpClient = nullptr;
 // Sets default values for this component's properties
-ULootLockerLeaderboardRequestHandler::ULootLockerLeaderboardRequestHandler()
+ULootLockerServerLeaderboardRequestHandler::ULootLockerServerLeaderboardRequestHandler()
 {
 	HttpClient = NewObject<ULootLockerHttpClient>();
 }
 
 
-void ULootLockerLeaderboardRequestHandler::GetMemberRank(const FLootLockerGetMemberRankRequest& MemberRequest, const FLootLockerGetMemberRankResponseBP& OnCompletedRequestBP, const FLootLockerGetMemberRankResponseDelegate& OnCompletedRequest)
+void ULootLockerServerLeaderboardRequestHandler::GetMemberRank(const FLootLockerGetMemberRankRequest& MemberRequest, const FLootLockerGetMemberRankResponseBP& OnCompletedRequestBP, const FLootLockerGetMemberRankResponseDelegate& OnCompletedRequest)
 {
 	FString ContentString;
 	// FJsonObjectConverter::UStructToJsonObjectString(FLootLockerGetMemberRankRequest::StaticStruct(), &MemberRequest, ContentString, 0, 0);
@@ -42,7 +42,7 @@ void ULootLockerLeaderboardRequestHandler::GetMemberRank(const FLootLockerGetMem
 	HttpClient->SendApi(newEndpoint, requestMethod, ContentString, sessionResponse, true);
 }
 
-void ULootLockerLeaderboardRequestHandler::GetByListOfMembers(const FLootLockerGetByListMembersRequest& GetScoreByListRequests, int LeaderboardId, const FLootLockerGetByListOfMembersResponseBP& OnCompletedRequestBP, const FLootLockerGetByListOfMembersResponseDelegate& OnCompletedRequest)
+void ULootLockerServerLeaderboardRequestHandler::GetByListOfMembers(const FLootLockerGetByListMembersRequest& GetScoreByListRequests, int LeaderboardId, const FLootLockerGetByListOfMembersResponseBP& OnCompletedRequestBP, const FLootLockerGetByListOfMembersResponseDelegate& OnCompletedRequest)
 {
 	FString ContentString;
 	FJsonObjectConverter::UStructToJsonObjectString(FLootLockerGetByListMembersRequest::StaticStruct(), &GetScoreByListRequests, ContentString, 0, 0);
@@ -70,7 +70,7 @@ void ULootLockerLeaderboardRequestHandler::GetByListOfMembers(const FLootLockerG
 	HttpClient->SendApi(newEndpoint, requestMethod, ContentString, sessionResponse, true);
 }
 
-void ULootLockerLeaderboardRequestHandler::GetScoreList(const FLootLockerGetScoreListRequest& GetScoreListRequests, const FLootLockerGetScoreListResponseBP& OnCompletedRequestBP, const FLootLockerGetScoreListResponseDelegate& OnCompletedRequest)
+void ULootLockerServerLeaderboardRequestHandler::GetScoreList(const FLootLockerGetScoreListRequest& GetScoreListRequests, const FLootLockerGetScoreListResponseBP& OnCompletedRequestBP, const FLootLockerGetScoreListResponseDelegate& OnCompletedRequest)
 {
 	FString ContentString;
 	FJsonObjectConverter::UStructToJsonObjectString(FLootLockerGetScoreListRequest::StaticStruct(), &GetScoreListRequests, ContentString, 0, 0);
@@ -106,7 +106,7 @@ void ULootLockerLeaderboardRequestHandler::GetScoreList(const FLootLockerGetScor
 	HttpClient->SendApi(newEndpoint, requestMethod, ContentString, sessionResponse, true);
 }
 
-void ULootLockerLeaderboardRequestHandler::SubmitScore(const FLootLockerSubmitScoreRequest& SubmitScoreRequests, int LeaderboardId, const FLootLockerSubmitScoreResponseBP& OnCompletedRequestBP, const FLootLockerSubmitScoreResponseDelegate& OnCompletedRequest)
+void ULootLockerServerLeaderboardRequestHandler::SubmitScore(const FLootLockerSubmitScoreRequest& SubmitScoreRequests, int LeaderboardId, const FLootLockerSubmitScoreResponseBP& OnCompletedRequestBP, const FLootLockerSubmitScoreResponseDelegate& OnCompletedRequest)
 {
 	FString ContentString;
 	FJsonObjectConverter::UStructToJsonObjectString(FLootLockerSubmitScoreRequest::StaticStruct(), &SubmitScoreRequests, ContentString, 0, 0);

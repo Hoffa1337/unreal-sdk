@@ -142,7 +142,7 @@ DECLARE_DELEGATE_OneParam(FLootLockerGetScoreListResponseDelegate, FLootLockerGe
 DECLARE_DELEGATE_OneParam(FLootLockerSubmitScoreResponseDelegate, FLootLockerSubmitScoreResponse);
 
 UCLASS()
-class LOOTLOCKERSDK_API ULootLockerLeaderboardRequestHandler : public UObject
+class LOOTLOCKERSDK_API ULootLockerServerLeaderboardRequestHandler : public UObject
 {
 	GENERATED_BODY()
 public:
@@ -153,7 +153,7 @@ public:
 
 
 public:
-    ULootLockerLeaderboardRequestHandler();
+    ULootLockerServerLeaderboardRequestHandler();
     static ULootLockerHttpClient* HttpClient;
 
 };
